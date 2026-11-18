@@ -149,9 +149,9 @@ document.querySelectorAll('.card').forEach(card => {
     observer.observe(card);
 });
 
-console.log('AI Learning Website · שחר הפקות AI · V1.2 Loaded Successfully! 🤖');
+console.log('AI Learning Website · שחר הפקות AI · V1.3 Loaded Successfully! 🤖');
 
-var SITE_MODEL_NAME = 'שחר הפקות AI · V1.2';
+var SITE_MODEL_NAME = 'שחר הפקות AI · V1.3';
 
 // Quiz Functionality
 function initQuiz() {

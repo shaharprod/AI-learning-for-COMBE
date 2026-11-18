@@ -45,12 +45,12 @@ HEAD_STYLE = """    <link href="https://fonts.googleapis.com/css2?family=Noto+Sa
     <style>body { direction: ltr; font-family: 'Noto Sans Devanagari', sans-serif; }</style>"""
 
 LOGO_INNER = """                    <span class="logo-stack">
-                        <span class="logo-text">एआई सीखना</span>
+                        <span class="logo-text">AI-learning-for-COMBE</span>
                         <span class="logo-byline">שחר הפקות AI · B0.14</span>
-                        <span class="logo-dedication">के लिए निर्मित: COMBE</span>
+                        <span class="logo-dedication">COMBE कंपनी के प्रशिक्षण विभाग के लिए निर्मित</span>
                     </span>"""
 
-DEDICATION_SUFFIX = " · के लिए निर्मित: COMBE"
+DEDICATION_SUFFIX = " · COMBE कंपनी के प्रशिक्षण विभाग के लिए निर्मित"
 
 
 def lang_switcher(slug: str) -> str:
@@ -64,7 +64,7 @@ def lang_switcher(slug: str) -> str:
 
 def fix_chrome(content: str, slug: str) -> str:
     content = content.replace('lang="en"', 'lang="hi"')
-    content = content.replace("Built for: COMBE", "के लिए निर्मित: COMBE")
+    content = content.replace("Built for the COMBE Training Department", "COMBE कंपनी के प्रशिक्षण विभाग के लिए निर्मित")
     content = re.sub(r'href="../index-en\.html"', 'href="../index-hi.html"', content)
     content = re.sub(rf'href="{slug}-en\.html"', f'href="{slug}-hi.html"', content)
     content = re.sub(r'href="([a-z-]+)-en\.html"', r'href="\1-hi.html"', content)
@@ -96,7 +96,7 @@ def fix_chrome(content: str, slug: str) -> str:
         content = content.replace(" · B0.14</title>", f" · B0.14{DEDICATION_SUFFIX}</title>", 1)
     content = re.sub(
         r'<p class="site-version"[^>]*>[^<]*</p>',
-        '<p class="site-version" aria-label="version">B0.14 · שחר הפקות AI · के लिए निर्मित: COMBE</p>',
+        '<p class="site-version" aria-label="version">B0.14 · שחר הפקות AI · COMBE कंपनी के प्रशिक्षण विभाग के लिए निर्मित</p>',
         content,
     )
     return content
