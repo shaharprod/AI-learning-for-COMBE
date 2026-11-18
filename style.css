@@ -1347,69 +1347,100 @@ html.a11y-cursor, html.a11y-cursor * {
     }
 }
 
-/* ═══ כותרת קומפקטית + לוגו קומבה · V1.3 ═══
-   הלוגו של קומבה יושב לצד שורות הטקסט (לא מתחתיהן) כדי לחסוך גובה */
+/* ═══ כותרת: קומבה למעלה בגדול, שחר הפקות מתחת בקטן · V1.3 ═══
+   .logo-stack הופך ל-display:contents כדי שכל הפריטים ייכנסו לגריד אחד:
+   [לוגו קומבה] AI-learning-for-COMBE
+   [לוגו קומבה] נבנה עבור מחלקת ההדרכות…
+   [אייקון קטן] שחר הפקות AI · V1.3                                   */
 :root {
     --logo-brand-font-size: clamp(0.95rem, 1.5vw, 1.12rem);
 }
 
 .nav {
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.logo a,
+html[dir="ltr"] .logo a,
+html[lang="en"] .logo a {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "combe title"
+        "combe ded"
+        "me    by";
+    column-gap: 0.6rem;
+    row-gap: 0;
+    align-items: center;
+}
+
+.logo-stack,
+html[dir="ltr"] .logo-stack,
+html[lang="en"] .logo-stack,
+html[lang="hi"] .logo-stack,
+html[lang="ru"] .logo-stack {
+    display: contents;
+}
+
+.logo-combe {
+    grid-area: combe;
+    display: block;
+    height: 54px;
+    width: auto;
+}
+
+.logo-text,
+html[dir="ltr"] .logo-text,
+html[lang="en"] .logo-text {
+    grid-area: title;
+    align-self: end;
+    line-height: 1.15;
+}
+
+.logo-dedication,
+html[dir="ltr"] .logo-dedication,
+html[lang="en"] .logo-dedication {
+    grid-area: ded;
+    align-self: start;
+    line-height: 1.15;
+    font-size: calc(var(--logo-brand-font-size) * 0.85) !important;
 }
 
 .logo-icon,
 html[dir="ltr"] .logo-icon,
 html[lang="en"] .logo-icon {
-    width: 40px;
-    height: 40px;
-}
-
-.logo-stack {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 0.75rem;
-    row-gap: 0.05rem;
-    align-items: center;
-}
-
-.logo-stack > span {
-    grid-column: 1;
-}
-
-.logo-text,
-.logo-dedication,
-html[dir="ltr"] .logo-text,
-html[dir="ltr"] .logo-dedication,
-html[lang="en"] .logo-text,
-html[lang="en"] .logo-dedication {
-    line-height: 1.15;
-}
-
-.logo-dedication,
-html[dir="ltr"] .logo-dedication,
-html[lang="en"] .logo-dedication {
-    font-size: calc(var(--logo-brand-font-size) * 0.85) !important;
+    grid-area: me;
+    justify-self: end;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    box-shadow: none;
 }
 
 .logo-byline,
 html[dir="ltr"] .logo-byline,
 html[lang="en"] .logo-byline {
-    font-size: calc(var(--logo-brand-font-size) * 0.72) !important;
-    line-height: 1.15;
-}
-
-.logo-combe {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    display: block;
-    height: 46px;
-    width: auto;
+    grid-area: by;
+    unicode-bidi: plaintext;
+    font-size: 0.7rem !important;
+    line-height: 1.2;
+    color: #64748b;
+    opacity: 1;
 }
 
 @media (max-width: 768px) {
+    .logo a,
+    html[dir="ltr"] .logo a,
+    html[lang="en"] .logo a {
+        grid-template-areas: "combe title";
+    }
     .logo-combe {
-        grid-row: 1;
-        height: 28px;
+        height: 30px;
+    }
+    .logo-icon,
+    html[dir="ltr"] .logo-icon,
+    html[lang="en"] .logo-icon {
+        display: none;
     }
 }
