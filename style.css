@@ -1347,19 +1347,69 @@ html.a11y-cursor, html.a11y-cursor * {
     }
 }
 
-/* לוגו קומבה — מתחת לשורת ההקדשה בכותרת · V1.3 */
+/* ═══ כותרת קומפקטית + לוגו קומבה · V1.3 ═══
+   הלוגו של קומבה יושב לצד שורות הטקסט (לא מתחתיהן) כדי לחסוך גובה */
+:root {
+    --logo-brand-font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+}
+
+.nav {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+.logo-icon,
+html[dir="ltr"] .logo-icon,
+html[lang="en"] .logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-stack {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.75rem;
+    row-gap: 0.05rem;
+    align-items: center;
+}
+
+.logo-stack > span {
+    grid-column: 1;
+}
+
+.logo-text,
+.logo-dedication,
+html[dir="ltr"] .logo-text,
+html[dir="ltr"] .logo-dedication,
+html[lang="en"] .logo-text,
+html[lang="en"] .logo-dedication {
+    line-height: 1.15;
+}
+
+.logo-dedication,
+html[dir="ltr"] .logo-dedication,
+html[lang="en"] .logo-dedication {
+    font-size: calc(var(--logo-brand-font-size) * 0.85) !important;
+}
+
+.logo-byline,
+html[dir="ltr"] .logo-byline,
+html[lang="en"] .logo-byline {
+    font-size: calc(var(--logo-brand-font-size) * 0.72) !important;
+    line-height: 1.15;
+}
+
 .logo-combe {
-    order: 3;
+    grid-column: 2;
+    grid-row: 1 / span 3;
     display: block;
-    height: 52px;
+    height: 46px;
     width: auto;
-    max-width: 100%;
-    margin-top: 0.15rem;
 }
 
 @media (max-width: 768px) {
     .logo-combe {
-        height: 30px;
-        margin-top: 0;
+        grid-row: 1;
+        height: 28px;
     }
 }
