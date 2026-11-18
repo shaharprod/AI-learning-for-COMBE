@@ -1560,3 +1560,53 @@ html[lang="en"] .logo-byline {
         margin-inline-end: 0.2rem;
     }
 }
+
+/* ═══ כפתורי התפריט כקוביות לחיצות עם הובר · V1.3 (מחשב בלבד; במובייל נשאר תפריט ההמבורגר) ═══ */
+@media (min-width: 769px) {
+    .nav-links {
+        gap: 0.35rem;
+        flex-shrink: 0;
+        align-items: center;
+    }
+    .nav-links > li > a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.36rem 0.7rem;
+        font-size: 0.88rem;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #14248f;
+        background: #ffffff;
+        border: 1px solid #d6deec;
+        border-radius: 10px;
+        box-shadow: 0 1px 0 #d6deec, 0 2px 6px rgba(20, 36, 143, 0.06);
+        transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease,
+                    box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .nav-links > li > a::after {
+        display: none;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > a:focus-visible,
+    .nav-links > li.dropdown:hover > a {
+        color: #ffffff;
+        background: linear-gradient(135deg, #14248f 0%, #1e8fe6 100%);
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(20, 36, 143, 0.25);
+        outline: none;
+    }
+    .nav-links > li > a:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(20, 36, 143, 0.25);
+    }
+}
+
+@media (min-width: 769px) and (prefers-reduced-motion: reduce) {
+    .nav-links > li > a,
+    .nav-links > li > a:hover {
+        transition: none;
+        transform: none;
+    }
+}
