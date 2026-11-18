@@ -1487,3 +1487,76 @@ html[lang="en"] .logo-byline {
     min-height: 0;
     padding: calc(var(--header-offset) + 1.5rem) 1.5rem 2.5rem;
 }
+
+/* ═══ עיצוב בלוק המותג · V1.3 ═══
+   [לוגו קומבה | קו מפריד]  AI-learning-for-COMBE
+                             נבנה עבור מחלקת ההדרכות…
+                             [אייקון] שחר הפקות AI · V1.3          */
+.logo a,
+html[dir="ltr"] .logo a,
+html[lang="en"] .logo a {
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas:
+        "combe title title"
+        "combe ded   ded"
+        "combe me    by";
+    column-gap: 0.4rem;
+}
+
+.logo-combe {
+    height: 58px;
+    padding-inline-end: 0.85rem;
+    margin-inline-end: 0.45rem;
+    border-inline-end: 1px solid #d6deec;
+}
+
+.logo-text,
+html[dir="ltr"] .logo-text,
+html[lang="en"] .logo-text {
+    color: #14248f;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.logo-text-accent {
+    color: #1e8fe6;
+}
+
+.logo-dedication,
+html[dir="ltr"] .logo-dedication,
+html[lang="en"] .logo-dedication {
+    color: #33415c;
+    font-weight: 500;
+}
+
+.logo-icon,
+html[dir="ltr"] .logo-icon,
+html[lang="en"] .logo-icon {
+    justify-self: start;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.logo-byline,
+html[dir="ltr"] .logo-byline,
+html[lang="en"] .logo-byline {
+    font-size: 0.68rem !important;
+    color: #8792a6;
+    letter-spacing: 0.02em;
+    justify-self: start;
+}
+
+@media (max-width: 768px) {
+    .logo a,
+    html[dir="ltr"] .logo a,
+    html[lang="en"] .logo a {
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "combe title";
+    }
+    .logo-combe {
+        height: 30px;
+        padding-inline-end: 0.5rem;
+        margin-inline-end: 0.2rem;
+    }
+}
